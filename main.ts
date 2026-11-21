@@ -3,7 +3,7 @@
 // directory and writes dossier.json with the kit's buildDossier.
 // Deterministic: the same repository always writes the same bytes.
 
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-game.ts';
@@ -17,7 +17,6 @@ function copyTree(name: string): void {
   cpSync(src, join(outDir, name), { recursive: true });
 }
 
-rmSync(outDir, { recursive: true, force: true });
 mkdirSync(outDir, { recursive: true });
 copyTree('game');
 copyTree('screenshots');
