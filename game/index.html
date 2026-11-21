@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pasar Senja — Spot the Difference</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <div class="hud-left">
+      <span id="game-title">Pasar Senja</span>
+      <span id="level-name">Night Market</span>
+    </div>
+    <div class="hud-center">
+      <span id="counter">0/8 found — 8 remain</span>
+      <div id="timer-wrap" title="Time left">
+        <div id="timer-bar"></div>
+        <span id="timer-text">3:00</span>
+      </div>
+    </div>
+    <div class="hud-right">
+      <span id="score">Score 0</span>
+      <button id="hint-btn" type="button" title="Hint (H)">Hint (3)</button>
+      <button id="sound-btn" type="button" title="Toggle sound">Sound on</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <section id="menu-screen" class="screen">
+      <h1>Pasar Senja</h1>
+      <p class="tagline">A spot-the-difference hunt through three hand-drawn worlds.<br>Two pictures look the same. They are not.</p>
+      <div id="level-cards"></div>
+      <p class="howto">
+        Click a difference in <strong>either</strong> picture to mark it on both.
+        <strong>H</strong> hint &middot; <strong>R</strong> restart &middot; <strong>1 2 3</strong> level &middot; <strong>Esc</strong> menu
+      </p>
+      <p class="howto small">Wrong clicks cost 10 points and 3 seconds. Hints are limited — spend them wisely.</p>
+    </section>
+
+    <section id="play-screen" class="screen hidden">
+      <div id="panels">
+        <figure class="panel">
+          <canvas id="panel-left" width="560" height="420"></canvas>
+          <figcaption>Picture A</figcaption>
+        </figure>
+        <div id="vs-badge">VS</div>
+        <figure class="panel">
+          <canvas id="panel-right" width="560" height="420"></canvas>
+          <figcaption>Picture B</figcaption>
+        </figure>
+      </div>
+      <div id="message"></div>
+    </section>
+
+    <section id="end-screen" class="screen hidden">
+      <h1 id="end-title">Level Complete!</h1>
+      <p id="end-detail"></p>
+      <p id="end-score"></p>
+      <div class="end-buttons">
+        <button id="end-next" type="button">Next level (N)</button>
+        <button id="end-retry" type="button">Play again (R)</button>
+        <button id="end-menu" type="button">Menu (Esc)</button>
+      </div>
+    </section>
+  </main>
+
+  <footer id="foot">
+    <span>Pasar Senja — an original spot-the-difference game. All art drawn in code, all sounds synthesized.</span>
+    <span id="foot-keys">Click to find &middot; H hint &middot; R restart &middot; N next &middot; Esc menu</span>
+  </footer>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
